@@ -8,11 +8,23 @@
       </div>
       
       <div v-if="client && room">
-        <v-btn color="warning" @click="leaveRoom" v-if="client && room">Leave Room</v-btn>
+        <v-btn color="warning" @click="leaveRoom">Leave Room</v-btn>
         <div>Client Hostname: {{client.hostname}}</div>
-        <div>Client Id: {{client.id}}</div>
         <div>Room Name: {{room.name}}</div>
+        <div>Client Id: {{client.id}}</div>
         <div>Session Id: {{room.sessionId}}</div>
+        <br/>
+        <v-flex xs12>
+        <v-textarea
+          outline
+          label="Message Payload"
+          no-resize
+          rows="5"
+          hint="needs to be a json string"
+          v-model="msgPayload"
+        ></v-textarea>
+        <v-btn @click="sendMsg">Send Msg</v-btn>
+      </v-flex>
       </div>
     </div>
   </v-layout>

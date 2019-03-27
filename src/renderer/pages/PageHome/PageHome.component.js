@@ -9,7 +9,8 @@ export default {
       serverUrl: 'ws://localhost:8080',
       roomName: 'match',
       client: null,
-      room: null
+      room: null,
+      msgPayload: "{}"
     }
   },
   computed: {
@@ -37,10 +38,20 @@ export default {
         console.log(this.room.sessionId, "session")
       })
     },
-    leaveRoom() {
+    leaveRoom () {
       this.room.leave()
       this.client = null
       this.room = null
+      console.log('leave room')
+    },
+    sendMsg () {
+      var json = JSON.parse(this.msgPayload)
+      console.log(json)
+      this.room.send(json);
+      console.log('send msg: ', this.msgPayload)
     }
+  },
+  beforeDestroy () {
+    this.leaveRoom()
   }
 }

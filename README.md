@@ -1,6 +1,15 @@
 # colyseus-client-emulator
 
-> A game launcher for BroProducts
+> a basic colyseus client emulator
+
+Test your colyseus server fast with this client emulator
+
+![Preview1](https://i.imgur.com/xFGagoE.png)
+- connect to server and a specific room
+
+![Preview2](https://i.imgur.com/0OzWwfy.png)
+- send messages to the connected room
+
 
 ## Build Setup
 
@@ -13,9 +22,9 @@ npm run dev
 
 # build electron application for production
 npm run build
-
-
 ```
+
+
 
 ---
 

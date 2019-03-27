@@ -1,14 +1,4 @@
-.level-progress >>> .v-progress-linear__bar > div {
-    background: linear-gradient(to right, #1976d2, #389fff, #1976d2 , #389fff, #1976d2 , #389fff);
-    animation: animProgressBackground 3s linear infinite;
-    background-size: 500% 500%;
-}
-
-@keyframes animProgressBackground {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
+.list {
+    overflow-y: scroll;
+    height: 400px;
 }

@@ -1,5 +1,5 @@
 const state = {
-    isMini: false
+    isMini: true
 }
 
 const mutations = {

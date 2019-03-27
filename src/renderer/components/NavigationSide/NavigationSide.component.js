@@ -25,9 +25,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getIsMini'])
+    getIsMini: () => true,
+    //...mapGetters(['getIsMini'])
   },
   methods: {
-    ...mapActions(['toggleIsMini'])
+    //...mapActions(['toggleIsMini'])
   }
 }

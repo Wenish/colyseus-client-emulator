@@ -1,28 +1,20 @@
 <template>
-  <v-layout row wrap justify-space-around>
-    <v-flex xs12>
-        <p>Hello World</p>
-        <v-list class="list">
-          <v-list-tile
-            v-for="item in items"
-            :key="item.title"
-            avatar
-            @click="()=>{}"
-          >
-            <v-list-tile-action>
-              <v-icon v-if="item.icon" color="pink">star</v-icon>
-            </v-list-tile-action>
-
-            <v-list-tile-content>
-              <v-list-tile-title v-text="item.title"></v-list-tile-title>
-            </v-list-tile-content>
-
-            <v-list-tile-avatar>
-              <img :src="item.avatar">
-            </v-list-tile-avatar>
-          </v-list-tile>
-        </v-list>
-    </v-flex>
+  <v-layout align-center justify-center row fill-height>
+    <div>
+      <div v-if="!client || !room">
+        <v-text-field label="Server Url" v-model="serverUrl"></v-text-field>
+        <v-text-field label="Room Name" v-model="roomName"></v-text-field>
+        <v-btn color="info" @click="joinRoom">Join Room</v-btn>
+      </div>
+      
+      <div v-if="client && room">
+        <v-btn color="warning" @click="leaveRoom" v-if="client && room">Leave Room</v-btn>
+        <div>Client Hostname: {{client.hostname}}</div>
+        <div>Client Id: {{client.id}}</div>
+        <div>Room Name: {{room.name}}</div>
+        <div>Session Id: {{room.sessionId}}</div>
+      </div>
+    </div>
   </v-layout>
 </template>
 <script src="./PageHome.component.js"></script>

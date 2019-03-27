@@ -6,41 +6,41 @@ export default {
   props: [],
   data() {
     return {
-      items: [
-        { icon: true, title: 'Jason Oner', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
-        { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
-        { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' }
-      ]
+      serverUrl: 'ws://localhost:8080',
+      roomName: 'match',
+      client: null,
+      room: null
     }
   },
   computed: {
-
+    selectedClient: function () {
+      return this.clients[this.selectedClientIndex]
+    }
   },
   mounted() {
-    console.log('hey')
-    var client = new Colyseus.Client('ws://localhost:8080');
-    var room = client.join("match");
-    room.onJoin.add(function() {
-        console.log(client.id, "joined", room.name);
-        console.log(room.sessionId, "session");
-    })
+
   },
   methods: {
-    
+    connectClient () {
+      this.client = new Colyseus.Client(this.serverUrl)
+      this.client.onOpen.add(function () {
+        console.log("client connection open")
+      });
+    },
+    joinRoom () {
+      this.connectClient()
+
+      this.room = this.client.join(this.roomName)
+
+      this.room.onJoin.add(() => {
+        console.log("joined", this.room.name)
+        console.log(this.room.sessionId, "session")
+      })
+    },
+    leaveRoom() {
+      this.room.leave()
+      this.client = null
+      this.room = null
+    }
   }
 }

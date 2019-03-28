@@ -9,7 +9,7 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
         >
-          <q-icon name="menu" />
+          <img alt="Colyseus Logo" style="height: 30px;" src="~assets/icons/icon-raw.svg">
         </q-btn>
 
         <q-toolbar-title>

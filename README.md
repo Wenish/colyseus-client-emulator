@@ -2,6 +2,9 @@
 
 > a basic colyseus client emulator
 
+[![Build Status](https://travis-ci.org/Wenish/colyseus-client-emulator.svg?branch=master)](https://travis-ci.org/Wenish/colyseus-client-emulator)
+[![Build status](https://ci.appveyor.com/api/projects/status/316idvv1438okyhk/branch/master?svg=true)](https://ci.appveyor.com/project/Wenish/colyseus-client-emulator/branch/master)
+
 Test your colyseus server fast with this client emulator
 
 ![Preview1](https://i.imgur.com/xFGagoE.png)

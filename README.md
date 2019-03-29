@@ -17,11 +17,21 @@ Test your colyseus server fast with this client emulator
 
 ``` bash
 # install dependencies
-npm install --runtime=electron --target=2.0.0
+npm install
+```
 
-# serve with hot reload at localhost:9080
+### SPA
+
+``` bash
 npm run dev
 
-# build electron application for production
 npm run build
+```
+
+### Electron
+
+``` bash
+npm run dev:electron
+
+npm run build:electron
 ```

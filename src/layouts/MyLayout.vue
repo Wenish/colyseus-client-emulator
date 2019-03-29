@@ -13,7 +13,7 @@
         </q-btn>
 
         <q-toolbar-title>
-          Colyseus Client Emulator
+          Colyseus Emulator
         </q-toolbar-title>
 
         <div>v1.1.0</div>

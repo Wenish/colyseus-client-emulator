@@ -23,9 +23,9 @@
     <q-drawer
       v-model="leftDrawerOpen"
       bordered
-      content-class="bg-grey-2"
+      content-class="bg-blue-grey-10"
     >
-      <q-list>
+      <q-list dark>
         <q-item-label header>Essential Links</q-item-label>
         <!--
         <q-item clickable tag="a" target="_blank" href="http://v1.quasar-framework.org">

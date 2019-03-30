@@ -1,9 +1,9 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-center bg-blue-grey-9 text-white">
     <div>
       <div v-if="!client || !room">
-        <q-input outlined v-model="serverUrl" label="Server Url" />
-        <q-input outlined v-model="roomName" label="Room Name" />
+        <q-input outlined v-model="serverUrl" label="Server Url" dark />
+        <q-input outlined v-model="roomName" label="Room Name" dark />
         <q-btn color="blue" text-color="black" label="Join Room" @click="joinRoom"/>
       </div>
       
@@ -15,6 +15,7 @@
         <div>Session Id: {{room.sessionId}}</div>
         <br/>
         <q-input
+          dark
           outlined
           v-model="msgPayload"
           filled

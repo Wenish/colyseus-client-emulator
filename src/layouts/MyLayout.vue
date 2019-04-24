@@ -16,7 +16,7 @@
           Colyseus Emulator
         </q-toolbar-title>
 
-        <div>v1.1.0</div>
+        <div>v1.1.1</div>
       </q-toolbar>
     </q-header>
 

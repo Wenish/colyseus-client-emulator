@@ -55,19 +55,14 @@ export default {
   methods: {
     connectClient () {
       this.client = new Colyseus.Client(this.serverUrl)
-      this.client.onOpen.add(function () {
-        console.log("client connection open")
-      });
     },
-    joinRoom () {
+    async joinRoom () {
       this.connectClient()
 
-      this.room = this.client.join(this.roomName)
+      this.room = await this.client.joinOrCreate(this.roomName)
 
-      this.room.onJoin.add(() => {
-        console.log("joined", this.room.name)
-        console.log(this.room.sessionId, "session")
-      })
+      console.log("joined", this.room.name)
+      console.log(this.room.sessionId, "session")
     },
     leaveRoom () {
       this.room.leave()

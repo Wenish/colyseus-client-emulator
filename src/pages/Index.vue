@@ -60,7 +60,10 @@ export default {
       this.connectClient()
 
       this.room = await this.client.joinOrCreate(this.roomName)
-
+      this.room.onMessage((message) => {
+        console.log("message received from server");
+        console.log(message);
+      });
       console.log("joined", this.room.name)
       console.log(this.room.sessionId, "session")
     },

@@ -9,10 +9,10 @@
       
       <div v-if="client && room">
         <q-btn color="orange" text-color="black" label="Leave Room" @click="leaveRoom"/>
-        <div>Client Hostname: {{client.hostname}}</div>
-        <div>Room Name: {{room.name}}</div>
-        <div>Client Id: {{client.id}}</div>
-        <div>Session Id: {{room.sessionId}}</div>
+        <div>Server Endpoint: <b>{{client.endpoint}}</b></div>
+        <div>Room Name: <b>{{room.name}}</b></div>
+        <div>Room Id: <b>{{room.id}}</b></div>
+        <div>Session Id: <b>{{room.sessionId}}</b></div>
         <br/>
         <q-input
           dark
@@ -45,11 +45,6 @@ export default {
       client: null,
       room: null,
       msgPayload: "{}"
-    }
-  },
-  computed: {
-    selectedClient: function () {
-      return this.clients[this.selectedClientIndex]
     }
   },
   methods: {

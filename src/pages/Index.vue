@@ -17,6 +17,13 @@
         <q-input
           dark
           outlined
+          v-model="msgType"
+          filled
+          hint="needs to be string or number"
+        />
+        <q-input
+          dark
+          outlined
           v-model="msgPayload"
           filled
           rows="5"
@@ -44,6 +51,7 @@ export default {
       roomName: 'match',
       client: null,
       room: null,
+      msgType: '0',
       msgPayload: "{}"
     }
   },
@@ -71,7 +79,7 @@ export default {
     sendMsg () {
       var json = JSON.parse(this.msgPayload)
       console.log(json)
-      this.room.send(json);
+      this.room.send(this.msgType, json);
       console.log('send msg: ', this.msgPayload)
     }
   },

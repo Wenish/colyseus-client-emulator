@@ -47,7 +47,7 @@ export default {
   name: 'PageIndex',
   data() {
     return {
-      serverUrl: 'ws://localhost:8080',
+      serverUrl: 'ws://localhost:3000',
       roomName: 'match',
       client: null,
       room: null,

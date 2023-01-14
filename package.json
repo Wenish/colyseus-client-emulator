@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
-    "colyseus.js": "^0.14.12",
+    "colyseus.js": "^0.15.0-preview.5",
     "quasar": "^1.0.0-beta.18"
   },
   "devDependencies": {

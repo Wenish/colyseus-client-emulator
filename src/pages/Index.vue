@@ -48,7 +48,7 @@ export default {
   data() {
     return {
       serverUrl: 'ws://localhost:3000',
-      roomName: 'match',
+      roomName: 'GameRoom',
       client: null,
       room: null,
       msgType: '0',
